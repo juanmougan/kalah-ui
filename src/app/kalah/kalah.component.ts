@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-kalah',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./kalah.component.css']
 })
 export class KalahComponent implements OnInit {
+
+  @Input() playerName = ''
+  @Input() seeds = 0
 
   constructor() { }
 

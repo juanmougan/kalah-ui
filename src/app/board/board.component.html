@@ -1,38 +1,18 @@
 <div class="container border">
     <div class="row">
       <div class="col">
-        <div class="row justify-content-center">
-          <span>0</span>
-        </div>
-        <div class="row justify-content-center">
-          North Kalah
-        </div>
+        <app-kalah [playerName]="northPlayerName" [seeds]="northPlayerKalahSeeds"></app-kalah>
       </div>
       <div class="col-8 border">
         <div class="row justify-content-center north-pit-row">
-          <app-pit></app-pit>
-          <app-pit></app-pit>
-          <app-pit></app-pit>
-          <app-pit></app-pit>
-          <app-pit></app-pit>
-          <app-pit></app-pit>
+          <app-pit *ngFor="let seedCount of northOwnSeeds; index as i" [ownSeeds]="seedCount" [rivalSeeds]="southRivalSeeds[i]" [index]="i"></app-pit>
         </div>
         <div class="row justify-content-center south-pit-row">
-          <app-pit></app-pit>
-          <app-pit></app-pit>
-          <app-pit></app-pit>
-          <app-pit></app-pit>
-          <app-pit></app-pit>
-          <app-pit></app-pit>
+          <app-pit *ngFor="let seedCount of southOwnSeeds; index as i" [ownSeeds]="seedCount" [rivalSeeds]="northRivalSeeds[i]" [index]="i"></app-pit>
         </div>
       </div>
       <div class="col">
-        <div class="row justify-content-center">
-          <span>0</span>
-        </div>
-        <div class="row justify-content-center">
-          South Kalah
-        </div>
+        <app-kalah [playerName]="southPlayerName" [seeds]="southPlayerKalahSeeds"></app-kalah>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pit',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pit.component.css']
 })
 export class PitComponent implements OnInit {
+
+  @Input() index = 0
+  @Input() ownSeeds = 0
+  @Input() rivalSeeds = 0
 
   constructor() { }
 
