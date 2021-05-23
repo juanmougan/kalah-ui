@@ -7,13 +7,15 @@ import { PitComponent } from './pit/pit.component';
 import { KalahComponent } from './kalah/kalah.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BoardComponent } from './board/board.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PitComponent,
     KalahComponent,
-    BoardComponent
+    BoardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
