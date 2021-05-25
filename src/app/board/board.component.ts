@@ -15,6 +15,8 @@ export class BoardComponent implements OnInit {
   // TODO receive from network
   board = emptyBoard;
   gameStarted = false;
+  gameOver = false;
+  gameOverMessage = ''
   gameId = '';
 
   constructor(private gameService: GameService) { }
@@ -25,14 +27,16 @@ export class BoardComponent implements OnInit {
   gameCreatedOrUpdatedHandler(gameData: any) {
     const boardData = gameData.board;
     this.gameStarted = true;
-    // TODO get from response
-    console.log("Board data>>>");
-    console.log(boardData);
-    console.log("next player");
-    console.log(boardData.currentPlayer);
     this.board = boardData;
     this.gameId = gameData.id;
-    console.log(this.gameId);
+    this.gameOver = gameData.status.endsWith('_WINS') || gameData.status === 'DRAW'
+    if (this.gameOver) {
+      this.gameOverMessage = this.getGameOverMessage(gameData.status);
+    }
+  }
+
+  private getGameOverMessage(status: string) {
+    return status.split("_").join(" ");
   }
 
   onPitSelected(pitIndex: number, type: string) {

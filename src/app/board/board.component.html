@@ -27,5 +27,5 @@
       </div>
     </div>
   </div>
-  <app-footer [playsNext]="board.currentPlayer.name" *ngIf="gameStarted"></app-footer>
+  <app-footer [playsNext]="board.currentPlayer.name" *ngIf="gameStarted || !gameOver" [gameOverMessage]="gameOverMessage"></app-footer>
 </div>

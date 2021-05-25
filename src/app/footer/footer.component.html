@@ -1,8 +1,8 @@
 <div class="footer">
-    <div class="alert alert-primary" role="alert" [hidden]="!playsNext">
+    <div class="alert alert-primary" role="alert" [hidden]="!playsNext || gameOverMessage">
         <span><strong>{{playsNext}}</strong> plays next</span>
     </div>
-    <div class="alert alert-danger" role="alert" [hidden]="!gameOverStatus">
-        <span>Game Over! <strong>{{gameOverStatus}}</strong></span>
+    <div class="alert alert-danger" role="alert" [hidden]="!gameOverMessage">
+        <span>Game Over! <strong>{{gameOverMessage}}</strong></span>
     </div>
 </div>
