@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { GameService } from '../game.service';
 import { Board } from '../model/Board';
+import { Game } from '../model/Game';
 import { InitialData } from '../model/InitialData';
 
 @Component({
@@ -13,7 +14,7 @@ export class StartingFormComponent implements OnInit {
   southName = '';
   northName = '';
   submitted = false;
-  @Output() gameCreated: EventEmitter<Board> = new EventEmitter()
+  @Output() gameCreated: EventEmitter<Game> = new EventEmitter()
 
   constructor(private gameService: GameService) { }
 
@@ -23,20 +24,17 @@ export class StartingFormComponent implements OnInit {
   onSubmit() {
     this.gameService.createGame({playerSouth: this.southName, playerNorth: this.northName})
       .subscribe(
-        // TODO propagate board to parent component
         game => this.onGameCreated(game),
         err => this.onError(err),
       );
     
   }
 
-  // TODO add types
-  onGameCreated(game: any) {
+  onGameCreated(game: Game) {
     this.submitted = true;
-    this.gameCreated.emit(game.board);
+    this.gameCreated.emit(game);
   }
 
-  // TODO add types
   onError(err: any) {
     // TODO add error handling
   }

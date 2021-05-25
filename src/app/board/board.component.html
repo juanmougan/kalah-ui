@@ -1,6 +1,6 @@
 <div class="board">
   <div class="initial-data">
-    <app-starting-form (gameCreated)="gameCreatedHandler($event)"></app-starting-form>
+    <app-starting-form (gameCreated)="gameCreatedOrUpdatedHandler($event)"></app-starting-form>
   </div>
   <div class="container border" *ngIf="gameStarted">
     <div class="row">
@@ -9,10 +9,10 @@
       </div>
       <div class="col-8 border">
         <div class="row justify-content-center north-pit-row">
-          <app-pit *ngFor="let seedCount of getNorthOwnSeeds(); index as i" [ownSeeds]="seedCount" [rivalSeeds]="getSouthRivalSeeds()[i]" [index]="i"></app-pit>
+          <app-pit *ngFor="let seedCount of getNorthOwnSeeds(); index as i" [ownSeeds]="seedCount" [rivalSeeds]="getSouthRivalSeeds()[i]" [index]="i" (click)="onPitSelected(i, 'NORTH')"></app-pit>
         </div>
         <div class="row justify-content-center south-pit-row">
-          <app-pit *ngFor="let seedCount of getSouthOwnSeeds(); index as i" [ownSeeds]="seedCount" [rivalSeeds]="getNorthRivalSeeds()[i]" [index]="i"></app-pit>
+          <app-pit *ngFor="let seedCount of getSouthOwnSeeds(); index as i" [ownSeeds]="seedCount" [rivalSeeds]="getNorthRivalSeeds()[i]" [index]="i" (click)="onPitSelected(i, 'SOUTH')"></app-pit>
         </div>
       </div>
       <div class="col">

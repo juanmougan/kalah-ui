@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { InitialData } from './model/InitialData';
+import { Game } from './model/Game';
+import { Observable } from 'rxjs';
+import { MoveRequest } from './model/MoveRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +18,14 @@ export class GameService {
     }),
   };
 
-  constructor(private httpCliant: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
-  createGame(playerNames: InitialData) {
+  createGame(playerNames: InitialData): Observable<Game> {
     // TODO add error handling
-    return this.httpCliant.post(this.baseUrl, playerNames, this.httpOptions);
+    return this.httpClient.post<Game>(this.baseUrl, playerNames, this.httpOptions);
+  }
+
+  move(gameId: string, request: MoveRequest): Observable<Game> {
+    return this.httpClient.patch<Game>(`${this.baseUrl}/${gameId}`, request, this.httpOptions);
   }
 }
