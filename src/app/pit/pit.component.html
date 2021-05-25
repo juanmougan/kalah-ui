@@ -1,6 +1,6 @@
 <div class="pit">
     <div class="row">
-        <button [disabled]="ownSeeds===0">{{ownSeeds}}</button>
+        <button [disabled]="ownSeeds===0 || !enablePits">{{ownSeeds}}</button>
     </div>
     <div class="row justify-content-center">
         <span>{{rivalSeeds}}</span>

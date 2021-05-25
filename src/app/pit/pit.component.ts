@@ -10,6 +10,7 @@ export class PitComponent implements OnInit {
   @Input() index = 0
   @Input() ownSeeds = 0
   @Input() rivalSeeds = 0
+  @Input() enablePits = true;
 
   constructor() { }
 

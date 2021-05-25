@@ -9,3 +9,8 @@
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
+/* Little hack, north pits should be drawn in reversed order */
+.row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
