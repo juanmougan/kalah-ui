@@ -1,5 +1,8 @@
 <div class="board">
-  <div class="container border">
+  <div class="initial-data">
+    <app-starting-form (gameCreated)="gameCreatedHandler($event)"></app-starting-form>
+  </div>
+  <div class="container border" *ngIf="gameStarted">
     <div class="row">
       <div class="col">
         <app-kalah [playerName]="board.north.name" [seeds]="board.north.kalah.seeds"></app-kalah>
@@ -17,5 +20,5 @@
       </div>
     </div>
   </div>
-  <app-footer [playsNext]="board.nextPlayer.name"></app-footer>
+  <app-footer [playsNext]="board.currentPlayer.name" *ngIf="gameStarted"></app-footer>
 </div>

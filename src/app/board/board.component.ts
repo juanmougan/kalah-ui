@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Board } from '../model/Board';
-import { mockBoard } from './mock-board';
+import { mockBoard, emptyBoard } from './mock-board';
 
 @Component({
   selector: 'app-board',
@@ -11,11 +11,24 @@ export class BoardComponent implements OnInit {
 
   // board: Board = mockBoard;
   // TODO receive from network
-  board = mockBoard;
+  board = emptyBoard;
+  gameStarted = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // gameCreatedHandler(boardData: Board) {
+  gameCreatedHandler(boardData: any) {
+    console.log(boardData);
+    this.gameStarted = true;
+    // TODO get from response
+    console.log("Board data>>>");
+    console.log(boardData);
+    console.log("next player");
+    console.log(boardData.nextPlayer);
+    this.board = boardData;
   }
 
   // TODO refactor these methods, they look almost the same

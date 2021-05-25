@@ -49,3 +49,8 @@ ng add @ng-bootstrap/ng-bootstrap
 ```
 ng generate component board
 ```
+
+```
+ng g c footer
+ng g c starting-form
+```
