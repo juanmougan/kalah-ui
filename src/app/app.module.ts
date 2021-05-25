@@ -8,6 +8,9 @@ import { KalahComponent } from './kalah/kalah.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BoardComponent } from './board/board.component';
 import { FooterComponent } from './footer/footer.component';
+import { StartingFormComponent } from './starting-form/starting-form.component';
+import { FormsModule } from "@angular/forms"
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { FooterComponent } from './footer/footer.component';
     PitComponent,
     KalahComponent,
     BoardComponent,
-    FooterComponent
+    FooterComponent,
+    StartingFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
